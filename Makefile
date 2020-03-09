@@ -6,8 +6,10 @@ SHELL = /bin/sh
 SUBDIRS = 
 
 srcdir = .
-top_srcdir = ..
-subdir = cops
+top_srcdir = .
+subdir = .
+
+installdir = /opt/GEM/cops
 
 default: help
 

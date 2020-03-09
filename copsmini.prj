@@ -6,7 +6,7 @@ cops.app
 .C[-P]
 .L[-S=16384]
 =
-..\..\minilib\purec\cstartv.s
+..\libcmini\sources\purec\cstartv.s
 
 adaptrsc.c
 callback.c
@@ -21,52 +21,52 @@ wlib.c
 
 clearcpu.s
 
-..\..\minilib\strcat.c
-..\..\minilib\strchr.c
-..\..\minilib\strcmp.c
-..\..\minilib\strcpy.c
-..\..\minilib\stricmp.c
-..\..\minilib\strlen.c
-..\..\minilib\strlwr.c
-..\..\minilib\strncmp.c
-..\..\minilib\strncpy.c
-..\..\minilib\strnicmp.c
-..\..\minilib\strrchr.c
-..\..\minilib\strrev.c
-..\..\minilib\strupr.c
-..\..\minilib\qsort.c
-..\..\minilib\memcpy.c
-..\..\minilib\memset.c
+..\libcmini\sources\strcat.c
+..\libcmini\sources\strchr.c
+..\libcmini\sources\strcmp.c
+..\libcmini\sources\strcpy.c
+..\libcmini\sources\stricmp.c
+..\libcmini\sources\strlen.c
+..\libcmini\sources\strlwr.c
+..\libcmini\sources\strncmp.c
+..\libcmini\sources\strncpy.c
+..\libcmini\sources\strnicmp.c
+..\libcmini\sources\strrchr.c
+..\libcmini\sources\strrev.c
+..\libcmini\sources\strupr.c
+..\libcmini\sources\qsort.c
+..\libcmini\sources\generic\memcpy.c
+..\libcmini\sources\generic\memset.c
 
-..\..\minilib\atoi.c
-..\..\minilib\atol.c
-..\..\minilib\itoa.c
-..\..\minilib\ltoa.c
+..\libcmini\sources\atoi.c
+..\libcmini\sources\atol.c
+..\libcmini\sources\itoa.c
+..\libcmini\sources\ltoa.c
 
-..\..\minilib\toupper.c
-..\..\minilib\tolower.c
-..\..\minilib\isupper.c
-..\..\minilib\islower.c
-..\..\minilib\ctype.c
-..\..\minilib\ctype2.c
+..\libcmini\sources\toupper.c
+..\libcmini\sources\tolower.c
+..\libcmini\sources\isupper.c
+..\libcmini\sources\islower.c
+..\libcmini\sources\ctype.c
+..\libcmini\sources\ctype2.c
 
-..\..\minilib\time.c
-..\..\minilib\timeoday.c
-..\..\minilib\mktime.c
+..\libcmini\sources\time.c
+..\libcmini\sources\timeoday.c
+..\libcmini\sources\mktime.c
 
-..\..\minilib\malloc.c
-..\..\minilib\calloc.c
-..\..\minilib\realloc.c
-..\..\minilib\free.c
+..\libcmini\sources\malloc.c
+..\libcmini\sources\calloc.c
+..\libcmini\sources\realloc.c
+..\libcmini\sources\free.c
 
-..\..\minilib\purec\uldiv.s
-..\..\minilib\purec\ulmul.s
-..\..\minilib\purec\ulmod.s
-..\..\minilib\purec\ldiv.s
-..\..\minilib\purec\lmul.s
-..\..\minilib\purec\lmod.s
-..\..\minilib\purec\setjmp.s
-..\..\minilib\purec\memmove.s
+..\libcmini\sources\purec\uldiv.s
+..\libcmini\sources\purec\ulmul.s
+..\libcmini\sources\purec\ulmod.s
+..\libcmini\sources\purec\ldiv.s
+..\libcmini\sources\purec\lmul.s
+..\libcmini\sources\purec\lmod.s
+..\libcmini\sources\purec\setjmp.s
+..\libcmini\sources\purec\memmove.s
 
 pcgemlib.lib
 pctoslib.lib
