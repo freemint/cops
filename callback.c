@@ -29,6 +29,9 @@
 
 #include <mint/cookie.h>
 #include <mint/mintbind.h>
+#ifdef __MINTLIB__
+#include <fcntl.h>
+#endif
 
 #include "cops_rsc.h"
 #include "adaptrsc.h"

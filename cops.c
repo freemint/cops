@@ -38,6 +38,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef __MINTLIB__
+#include <fcntl.h>
+#endif
 #include <time.h>
 #include <mint/sysvars.h>
 #undef etv_critic

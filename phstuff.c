@@ -26,6 +26,9 @@
 #include <stdio.h>
 
 #include <mint/ssystem.h>
+#ifdef __MINTLIB__
+#include <fcntl.h>
+#endif
 
 #include "cops_rsc.h"
 #include "phstuff.h"
