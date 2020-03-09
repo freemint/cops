@@ -7,7 +7,7 @@ make
 
 mkdir -p "${TMP}/cops"
 
-make PREFIX="${TMP}/cops" install
+make installdir="${TMP}/cops" install
 
 find "${TMP}" -type f -perm -a=x -exec m68k-atari-mint-strip -s {} \;
 find "${TMP}" -type f \( -name '*.a' -o -name '*.o' \) -exec m68k-atari-mint-strip -S -X -w -N '.L[0-9]*' {} \;

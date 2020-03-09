@@ -10,6 +10,7 @@ top_srcdir = .
 subdir = .
 
 installdir = /opt/GEM/cops
+cpu = all
 
 default: help
 
@@ -34,11 +35,17 @@ help:
 	@echo '# - all'
 	@echo '# - $(copstargets)'
 	@echo '#'
+	@echo '# - install'
 	@echo '# - clean'
 	@echo '# - distclean'
 	@echo '# - bakclean'
 	@echo '# - strip'
 	@echo '# - help'
+	@echo '#'
+	@echo '# example for a ColdFire binary: -> make col'
+	@echo '#'
+	@echo '# To install single CPU binary: ->'
+	@echo '# make install cpu=<CPU> installdir=<DIR>'
 	@echo '#'
 
 strip:
@@ -56,6 +63,22 @@ all-targets:
 		($(MAKE) $$i) \
 		|| case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
 	done && test -z "$$fail"
+
+install: $(cpu)
+	$(MKDIR) -p $(installdir)
+ifeq ($(cpu), all)
+	@set -x; \
+	for i in $(copstargets); do \
+		$(CP) .compile_$$i/cops.app $(installdir)/cops$$i.app; \
+		chmod 755 $(installdir)/cops$$i.app; \
+		$(STRIP) $(installdir)/cops$$i.app; \
+	done
+else
+	$(CP) .compile_$(cpu)/cops.app $(installdir)/cops.app
+	chmod 755 $(installdir)/cops.app
+	$(STRIP) $(installdir)/cops.app
+endif
+	$(CP) $(srcdir)/copsicn.rsc $(installdir)
 
 $(copstargets):
 	$(MAKE) buildcops cops=$@
