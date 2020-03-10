@@ -35,17 +35,6 @@ before_script:
 script:
   - sh ./.travis/build.sh "${PWD}/.travis/tmp" "${PWD}/.travis/out"
 
-# The exit code of after_success, after_failure, after_script and subsequent stages do not affect the build result.
-# However, if one of these stages times out, the build is marked as a failure.
-after_success:
-  - if [ -x .travis/after_success.sh ]; then ./.travis/after_success.sh; else true; fi
-after_failure:
-  - if [ -x .travis/after_failure.sh ]; then ./.travis/after_failure.sh; else true; fi
-
-# A non-zero exit code in this phase will mark the build as errored.
-before_deploy:
-  - if [ -x .travis/before_deploy.sh ]; then ./.travis/before_deploy.sh; else true; fi
-
 deploy:
   provider: script
   skip_cleanup: true
