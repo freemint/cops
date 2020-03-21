@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/freemint/cops.svg?branch=master)](https://travis-ci.org/freemint/cops) [ ![Download](https://api.bintray.com/packages/freemint/freemint/cops/images/download.svg) ](https://bintray.com/freemint/freemint/cops/_latestVersion)
