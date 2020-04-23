@@ -231,6 +231,12 @@ unsigned long get_aes_info(_WORD *font_id, _WORD *font_height, _WORD *hor_3d, _W
 				}
 			}
 		}
+
+		if (appl_getinfo(98, &ag1, &ag2, &ag3, &ag4))
+		{
+			if (ag1 & 0x01)
+				flags |= GAI_OBJC_WEDIT;
+		}
 	}
 
 	return flags;

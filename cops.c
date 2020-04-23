@@ -3601,7 +3601,12 @@ static _WORD handle_wdlg_evnt(CPX_DESC *cpx_desc, EVNT *events)
 		{
 			edit_obj = wdlg_get_edit(cpx_desc->dialog, &cpx_desc->cursor_idx);
 			if (edit_obj)
-				objc_wedit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_END, cpx_desc->whdl);
+			{
+				if (aes_flags & GAI_OBJC_WEDIT)
+					objc_wedit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_END, cpx_desc->whdl);
+				else
+					objc_edit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_END);
+			}
 		}
 		ret = wdlg_evnt(cpx_desc->dialog, events);
 		if (ret && edit_obj)
@@ -3611,7 +3616,10 @@ static _WORD handle_wdlg_evnt(CPX_DESC *cpx_desc, EVNT *events)
 			{
 				if (edit_obj2 == edit_obj)
 				{
-					objc_wedit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_INIT, cpx_desc->whdl);
+					if (aes_flags & GAI_OBJC_WEDIT)
+						objc_wedit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_INIT, cpx_desc->whdl);
+					else
+						objc_edit(cpx_desc->tree, edit_obj, 0, &cpx_desc->cursor_idx, ED_INIT);
 					edit_obj2 = 0;
 				}
 				edit_obj = edit_obj2;

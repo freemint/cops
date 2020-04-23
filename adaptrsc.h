@@ -43,6 +43,7 @@
 #define	GAI_MOUSE	0x8000UL	/* graf_mouse(M_SAVE/M_RESTORE) supported */
 #define GAI_POPUP	0x10000UL	/* form_popup() supported */
 #define GAI_SCROLLPOPUP	0x20000UL	/* xfrm_popup() supported */
+#define GAI_OBJC_WEDIT	0x40000UL	/* objc_wedit() supported */
 
 short get_cookie(long cookie, long *p_value);
 
