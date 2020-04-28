@@ -3434,10 +3434,47 @@ do_args(char *args)
 	}
 }
 
+static time_t mymktime(struct tm *tm)
+{
+	static unsigned char const mon_days [] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	unsigned long tyears, tdays, leaps, utc_hrs;
+	int i;
+
+	tyears = tm->tm_year - 70;
+	leaps = (tyears + 2) / 4;
+	tdays = 0;
+	for (i = 0; i < tm->tm_mon; i++)
+		tdays += mon_days[i];
+
+	tdays += tm->tm_mday - 1;
+	tdays = tdays + tyears * 365 + leaps;
+
+	utc_hrs = tm->tm_hour;
+	return tdays * 86400UL + utc_hrs * 3600UL + tm->tm_min * 60U + tm->tm_sec;
+}
+
+static time_t mytime(void)
+{
+	unsigned short tos_time;
+	unsigned short tos_date;
+	struct tm now;
+
+	tos_time = Tgettime();
+	tos_date = Tgetdate();
+
+	now.tm_sec = (tos_time & 0x1f) * 2;
+	now.tm_min = (tos_time >> 5) & 0x3f;
+	now.tm_hour = tos_time >> 11;
+	now.tm_mday = tos_date & 0x1f;
+	now.tm_mon = ((tos_date >> 5) & 0xf) - 1;
+	now.tm_year = (tos_date >> 9) + 80;
+	return mymktime(&now);
+}
+
 static void
 set_termtime(void)
 {
-	termtime = time(NULL) + settings.after * 60;
+	termtime = mytime() + settings.after * 60;
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -3987,7 +4024,7 @@ cpx_main_loop(void)
 			handle_button(events.mx, events.my, events.mbutton & 3, events.kstate, events.mclicks);
 
 		/* automatisch terminieren? */
-		if (settings.term && time(NULL) > termtime)
+		if (settings.term && mytime() > termtime)
 		{
 			/* Applikation oder MagiC als OS? */
 			if (_app || aes_global[1] != 1)

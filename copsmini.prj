@@ -50,10 +50,6 @@ clearcpu.s
 ..\libcmini\sources\ctype.c
 ..\libcmini\sources\ctype2.c
 
-..\libcmini\sources\time.c
-..\libcmini\sources\timeoday.c
-..\libcmini\sources\mktime.c
-
 ..\libcmini\sources\malloc.c
 ..\libcmini\sources\calloc.c
 ..\libcmini\sources\realloc.c
