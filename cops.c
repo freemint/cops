@@ -4400,7 +4400,12 @@ init_rsrc(void)
 	for (i = 0; i < NUM_TREE; i++)
 		fix_tree(tree_addr[i]);
 
-	if ((aes_flags & GAI_CICN) /* && (aes_flags & GAI_MAGIC) */
+	/*
+	 * using color icon data from compiled-in resources
+	 * currently does not work on XaAES, so we have to check
+	 * here for MagiC, too
+	 */
+	if ((aes_flags & GAI_CICN) && (aes_flags & GAI_MAGIC)
 		&& aes_global[10] >= 4)
 	{
 		/* Farbicons, unter MagiC */
