@@ -11,8 +11,11 @@ UDO_VERSION="7.12"
 cd /tmp
 wget -q -O - "http://tho-otto.de/download/hcp-${HCP_VERSION}-linux.tar.bz2" | tar xjf -
 mv "hcp-${HCP_VERSION}" hcp
-
+cd -
 
 mkdir -p "/tmp/udo"
 cd "/tmp/udo"
 wget -q -O - "http://www.tho-otto.de/download/udo-${UDO_VERSION}-linux.tar.bz2" | tar xjf -
+cd -
+
+./.travis/install_bintray.sh mintlib gemlib
