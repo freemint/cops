@@ -4,6 +4,8 @@ cops.app
 .C[-A-]
 .C[-G]
 .C[-P]
+.C[-I..\libcmini\include]
+.C[-L=64]
 .L[-S=16384]
 =
 ..\libcmini\sources\purec\cstartv.s
@@ -48,7 +50,6 @@ clearcpu.s
 ..\libcmini\sources\isupper.c
 ..\libcmini\sources\islower.c
 ..\libcmini\sources\ctype.c
-..\libcmini\sources\ctype2.c
 
 ..\libcmini\sources\malloc.c
 ..\libcmini\sources\calloc.c
