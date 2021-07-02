@@ -4,7 +4,7 @@
 # -x: Display expanded script commands
 
 # UDO is defined as "~/tmp/udo/udo"
-UDO=~/tmp/udo/bin/udo
+UDO=~/tmp/udo/udo
 echo "UDO=$UDO" >> $GITHUB_ENV
 
 UDO_VERSION="7.12"
