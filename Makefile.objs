@@ -36,7 +36,7 @@ GENFILES = $(TARGET)
 ifeq ($(LIBCMINI),yes)
 INCLUDES = -I$(LIBCMINI_INCPATH)
 LDFLAGS += -nostdlib
-LIBS := -L$(LIBCMINI_LIBPATH) $(LIBS) -lcmini -lgcc
+LIBS := -L$(LIBCMINI_LIBPATH) $(LIBS) -lgcc -lcmini -lgcc
 CRT0 = $(LIBCMINI_STARTUP)
 OPTS := -Os -fomit-frame-pointer
 endif
