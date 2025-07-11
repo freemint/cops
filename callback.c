@@ -252,7 +252,7 @@ static void _cdecl
 rsh_fix(struct rsh_fix_args args)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&args)[-1];
+	void *pc = RETURN_ADDR(args);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -325,7 +325,7 @@ static void _cdecl
 rsh_obfix(struct rsh_obfix_args args)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&args)[-1];
+	void *pc = RETURN_ADDR(args);
 	
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -892,7 +892,7 @@ static GRECT *cpx_get_first_rect(CPX_DESC *cpx_desc, GRECT *redraw_area)
 static GRECT * _cdecl GetFirstRect(GRECT *prect)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&prect)[-1];
+	void *pc = RETURN_ADDR(prect);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -941,7 +941,7 @@ static GRECT *cpx_get_next_rect(CPX_DESC *cpx_desc)
 static GRECT * _cdecl GetNextRect(void *args)
 {
 	CPX_DESC *cpx;
-	void *pc = (&args)[-1];
+	void *pc = RETURN_ADDR(args);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -987,7 +987,7 @@ cpx_set_evnt_mask(CPX_DESC *cpx_desc, short mask, MOBLK *m1, MOBLK *m2, long tim
 static void _cdecl Set_Evnt_Mask(struct Set_Evnt_Mask_args args)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&args)[-1];
+	void *pc = RETURN_ADDR(args);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -1089,7 +1089,7 @@ static short _cdecl
 CPX_Save(void *ptr, long bytes)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&ptr)[-1];
+	void *pc = RETURN_ADDR(ptr);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
@@ -1110,7 +1110,7 @@ CPX_Save(void *ptr, long bytes)
 static void * _cdecl Get_Buffer(void *args)
 {
 	CPX_DESC *cpx;
-	void *pc = (&args)[-1];
+	void *pc = RETURN_ADDR(args);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);

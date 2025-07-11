@@ -41,6 +41,11 @@ typedef enum
 	DEFAULTDIR
 } DIRS;
 
+#ifdef __GNUC__
+#define RETURN_ADDR(firstarg) __builtin_return_address(0)
+#else
+#define RETURN_ADDR(firstarg) (((void **)&firstarg)[-1])
+#endif
 
 /* lookup cpx descriptor with addr */
 CPX_DESC *find_cpx_by_addr(void *pc);

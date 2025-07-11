@@ -478,7 +478,7 @@ short _cdecl
 Xform_do(struct Xform_do_args args)
 {
 	CPX_DESC *cpx;
-	void *pc = ((void **)&args)[-1];
+	void *pc = RETURN_ADDR(args);
 
 	cpx = find_cpx_by_addr(pc);
 	DEBUG_CALLBACK(cpx);
