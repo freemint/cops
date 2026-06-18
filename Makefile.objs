@@ -19,10 +19,6 @@ include $(top_srcdir)/CONFIGVARS
 include $(top_srcdir)/RULES
 include $(top_srcdir)/PHONY
 
-ifneq ($(TRAVIS_REPO_SLUG),)
-CFLAGS += -DBROKEN_GEMLIB
-endif
-
 all-here: build
 
 # default overwrites
