@@ -64,7 +64,7 @@ all-targets:
 		|| case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
 	done && test -z "$$fail"
 
-install: $(cpu)
+install: $(cpu) docu
 	$(MKDIR) -p $(installdir)
 ifeq ($(cpu), all)
 	@set -x; \
@@ -79,6 +79,18 @@ else
 	$(STRIP) $(installdir)/cops.app
 endif
 	$(CP) $(srcdir)/copsicn.rsc $(installdir)
+	$(MKDIR) -p $(installdir)/doc
+	@set -x; for lang in en de fr; do \
+		test -f doc/cops_$$lang.hyp || continue; \
+		$(CP) doc/cops_$$lang.hyp $(installdir)/doc; \
+		$(CP) doc/cops_$$lang.ref $(installdir)/doc; \
+	done
+
+docu:
+	$(MAKE) -C doc
+
+clean::
+	$(MAKE) -C doc clean
 
 $(copstargets):
 	$(MAKE) buildcops cops=$@
